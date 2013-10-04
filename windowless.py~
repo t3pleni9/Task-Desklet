@@ -85,7 +85,7 @@ class GCalendarClient:
 class GTask:
     
     def insertTree(self, nodeName, nodeList):
-        buffer = '<span foreground="lightgray" font="courier" size="large"><b>%s</b></span>' % nodeName
+        buffer = '<span foreground="lightgray" font="courier" size="large"><b>%s<b></span>' % nodeName
        
         nodeTree = self.treestore.append(None, [buffer])   
         self.rowCount += 1
