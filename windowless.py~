@@ -91,9 +91,9 @@ class GCalendarClient:
             startDate = startDate + datetime.timedelta(days=1) 
 
         eventList =  self.DateRangeQuery(start_date=startDate.__str__(), end_date=endDate.__str__())
-        try:        	
+	    try:        	
     	    returnList =  [(self._weekPre[time.strptime(x[1].split('.')[0],"%Y-%m-%dT%H:%M:%S").tm_wday],x[0], time.strptime(x[1].split('.')[0],"%Y-%m-%dT%H:%M:%S").tm_wday) for x in eventList]
-        except ValueError:		
+	    except ValueError:		
     	    returnList =  [(self._weekPre[time.strptime(x[1].split('.')[0],"%Y-%m-%d").tm_wday],x[0],time.strptime(x[1].split('.')[0],"%Y-%m-%d").tm_wday) for x in eventList]
 	    returnList.sort(lambda x, y : int(x[2]) - int(y[2]))
 	    return returnList
